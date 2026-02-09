@@ -51,13 +51,24 @@ body {
 /* BUTTON */
 .btn-primary {
   background: var(--blue);
-	align-self: flex-start;
+  align-self: flex-start;
   color: #fff;
   font-size: 23px;
   padding: 12px 22px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
+}
+
+.btn-orange {
+  background: #f97316;
+  color: white;
+  font-size: 20px;
+  padding: 14px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 /* HERO */
@@ -79,11 +90,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 10px;
 }
 
 .hero h1 {
   font-size: 52px;
   margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .hero ul {
@@ -143,13 +160,11 @@ body {
 /* FLEET */
 .fleet {
   position: relative;
-  height: 750px;
-
+  min-height: 750px;
   background-image: url("images/fleet-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right center;
-
 }
 
 .fleet::before {
@@ -160,10 +175,9 @@ body {
 }
 
 .fleet .container {
-  font-size:20px;
+  font-size: 20px;
   position: relative;
 }
-
 
 .fleet-gallery {
   display: grid;
@@ -180,7 +194,6 @@ body {
 .contact {
   padding: 80px 0;
   position: relative;
-
   background-image: url("./images/contact-bg.jpg");
   background-size: cover;
   background-position: bottom;
@@ -197,26 +210,6 @@ body {
   position: relative;
 }
 
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-/* MOBILE */
-@media(max-width: 768px) {
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  .hero {
-    height: 420px;
-  }
-}
-
-/* CONTACT DETAILS */
 .contact-grid {
   display: flex;
   justify-content: space-between;
@@ -234,26 +227,77 @@ footer {
 }
 
 .contact-text {
-  font-size:20px;
+  font-size: 20px;
 }
 
-/* ORANGE BUTTON */
-.btn-orange {
-  background: #f97316;
-  color: white;
-  font-size:20px;
-  padding: 14px 26px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 500;
-  white-space: nowrap;
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
 }
 
-/* MOBILE CONTACT */
-@media (max-width: 768px) {
+/* MOBILE MEDIA QUERIES */
+@media(max-width: 1024px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero h2 {
+    font-size: 24px;
+  }
+}
+
+@media(max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 60px 0;
+  }
+  .hero h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .hero h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .hero ul {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .btn-primary, .btn-orange {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .fleet {
+    min-height: auto;
+    padding: 50px 0;
+    background-position: center center;
+  }
+
+  .fleet-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .services h2 {
+    font-size: 26px;
+  }
+
+  .service-cards {
+    gap: 20px;
+  }
+
   .contact-grid {
     flex-direction: column;
     text-align: center;
   }
-}
 
+  .contact-details div {
+    font-size: 18px;
+  }
+
+  .contact-text {
+    font-size: 18px;
+  }
+}
