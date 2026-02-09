@@ -7,12 +7,14 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: 'Inter', sans-serif;
   color: var(--text);
+  line-height: 1.5;
 }
 
 .container {
@@ -24,19 +26,19 @@ body {
 /* NAVBAR */
 .navbar {
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
 .nav-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 15px 0;
 }
 
 .logo-box {
   display: flex;
-  font-size: 30px;
   align-items: center;
   gap: 10px;
   font-weight: 700;
@@ -48,155 +50,165 @@ body {
   height: 40px;
 }
 
-/* BUTTON */
+/* BUTTONS */
+.btn-primary, .btn-orange {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
 .btn-primary {
   background: var(--blue);
-  align-self: flex-start;
   color: #fff;
-  font-size: 23px;
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 20px;
 }
 
 .btn-orange {
   background: #f97316;
-  color: white;
-  font-size: 20px;
-  padding: 14px 26px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 500;
-  white-space: nowrap;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
+/* Hover effect */
+.btn-primary:hover, .btn-orange:hover {
+  transform: scale(1.05);
 }
 
 /* HERO */
 .hero {
   position: relative;
-  height: 850px;
   background: url("images/hero-bg.jpg") center/cover no-repeat;
+  color: var(--text);
+  text-align: center;
+  padding: 80px 20px;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.7);
 }
 
 .hero-content {
   position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10px;
+  max-width: 800px;
+  margin: auto;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: 52px;
+  font-size: clamp(28px, 6vw, 52px);
   margin-bottom: 20px;
 }
 
 .hero h2 {
-  font-size: 28px;
+  font-size: clamp(18px, 3vw, 28px);
   margin-bottom: 30px;
 }
 
 .hero ul {
-  font-size: 25px;
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  font-size: clamp(16px, 2.5vw, 25px);
   margin-bottom: 30px;
 }
 
 .hero li {
   margin-bottom: 10px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* SERVICES */
 .services {
-  padding: 70px 0;
+  padding: 60px 20px;
   background: var(--light);
 }
 
 .services h2 {
   text-align: center;
-  font-size: 30px;
+  font-size: clamp(24px, 4vw, 30px);
   margin-bottom: 50px;
 }
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 30px;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .card {
   background: #fff;
-  font-size: 20px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
-/* SHARED SPACING */
-.section-title {
-  margin-bottom: 12px;
+.card h3 {
+  font-size: clamp(18px, 2.5vw, 22px);
+  margin-bottom: 10px;
 }
 
-.section-subtitle {
-  margin-bottom: 40px;
+.card p {
+  font-size: clamp(14px, 2vw, 18px);
   color: #475569;
 }
 
 /* FLEET */
 .fleet {
   position: relative;
-  min-height: 750px;
-  background-image: url("images/fleet-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right center;
+  background: url("images/fleet-bg.jpg") center/cover no-repeat;
+  padding: 60px 20px;
 }
 
 .fleet::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.7);
 }
 
 .fleet .container {
-  font-size: 20px;
   position: relative;
+  z-index: 1;
 }
 
 .fleet-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .fleet-gallery img {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 /* CONTACT */
 .contact {
-  padding: 80px 0;
   position: relative;
-  background-image: url("./images/contact-bg.jpg");
-  background-size: cover;
-  background-position: bottom;
+  background: url("images/contact-bg.jpg") center/cover no-repeat;
+  padding: 60px 20px;
 }
 
 .contact::before {
@@ -208,26 +220,20 @@ body {
 
 .contact .container {
   position: relative;
-}
-
-.contact-grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.contact-details {
-  margin-top: 20px;
-}
-
-.contact-details div {
-  margin-bottom: 8px;
-  font-size: 20px;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .contact-text {
-  font-size: 20px;
+  flex: 1 1 300px;
+}
+
+.contact-details div {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 8px;
 }
 
 /* FOOTER */
@@ -237,67 +243,31 @@ footer {
   font-size: 14px;
 }
 
-/* MOBILE MEDIA QUERIES */
-@media(max-width: 1024px) {
-  .hero h1 {
-    font-size: 42px;
-  }
-  .hero h2 {
-    font-size: 24px;
-  }
-}
-
+/* MOBILE ADJUSTMENTS */
 @media(max-width: 768px) {
-  .hero {
-    height: auto;
-    padding: 60px 0;
+  .nav-content {
+    flex-direction: column;
+    gap: 15px;
   }
-  .hero h1 {
-    font-size: 30px;
-    text-align: center;
-  }
-  .hero h2 {
-    font-size: 20px;
-    text-align: center;
-  }
+
   .hero ul {
-    font-size: 18px;
-    padding-left: 20px;
-  }
-
-  .btn-primary, .btn-orange {
-    font-size: 18px;
-    padding: 10px 20px;
-  }
-
-  .fleet {
-    min-height: auto;
-    padding: 50px 0;
-    background-position: center center;
+    text-align: left;
   }
 
   .fleet-gallery {
     grid-template-columns: 1fr;
   }
 
-  .services h2 {
-    font-size: 26px;
-  }
-
-  .service-cards {
-    gap: 20px;
-  }
-
-  .contact-grid {
+  .contact .container {
     flex-direction: column;
     text-align: center;
   }
 
-  .contact-details div {
-    font-size: 18px;
+  .contact-text {
+    width: 100%;
   }
 
-  .contact-text {
-    font-size: 18px;
+  .btn-primary, .btn-orange {
+    width: 100%;
   }
 }
